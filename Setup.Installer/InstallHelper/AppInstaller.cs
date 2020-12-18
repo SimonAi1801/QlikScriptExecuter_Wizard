@@ -43,10 +43,10 @@ namespace Setup.Installer.InstallHelper
             string key = null;
             string consumer = null;
             string installFolderTagret = null;
-            string tmp = null;
+            //string tmp = null;
             foreach (string keyValue in Context.Parameters.Keys)
             {
-                tmp += $"{keyValue}: " + AdjustString(Context.Parameters[keyValue]) + '\n';
+                //tmp += $"{keyValue}: " + AdjustString(Context.Parameters[keyValue]) + '\n';
                 switch (keyValue)
                 {
                     case "serverurl":

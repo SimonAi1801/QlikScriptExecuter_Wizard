@@ -16,7 +16,8 @@ namespace Setup.Installer.InstallHelper
         private const string _filePath = @"C:\ProgramData\TrustedDecisions\";
         private const string _config = "Config";
         private const string _license = "License";
-        private static QAppResponse response = new QAppResponse();
+        private static QAppResponse _response = new QAppResponse();
+
         public static void Save(string serverUrl, string userId, string userDirectory,
                                 string proxyPath, string headName, string qlikConnectorName,
                                 string misc, string dataBaseName,
@@ -60,6 +61,7 @@ namespace Setup.Installer.InstallHelper
             qlikFinanceConnectorBody.ConnectionString = financeDashBoardConnectorPath;
             qlikFinanceConnectorBody.Type = "folder";
 
+            // Wird nicht mehr benötigt wenn QlikConnector in QVS gespeichert wird
             dynamic qseDashBoardQvdConnector = new JObject();
             qseDashBoardQvdConnector.Name = "DashboardQVD";
             qseDashBoardQvdConnector.ConnectionString = installFolderTagret + "ExecuterQVDs";
@@ -111,7 +113,7 @@ namespace Setup.Installer.InstallHelper
             //    sbApiInfo.AppendLine($"");
             //}
 
-            sbConfig.AppendLine($"appId={response.Id}");
+            sbConfig.AppendLine($"appId={_response.Id}");
             sbConfig.AppendLine($"url={serverUrl}");
             sbConfig.AppendLine($"headname={headName}");
             sbConfig.AppendLine($"userdirectory={userDirectory}");
@@ -183,7 +185,7 @@ namespace Setup.Installer.InstallHelper
             var returnValueAppDataLoad = restClient.WithContentType("application/vnd.qlik.sense.app")
                 .Post($"/{proxyPath}/qrs/app/upload?keepData=true&name=" + $"{appDataLoadName}", dataLoadApp);
 
-            response = JsonConvert.DeserializeObject<QAppResponse>(returnValueAppDataLoad);
+            _response = JsonConvert.DeserializeObject<QAppResponse>(returnValueAppDataLoad);
         }
 
         #endregion
