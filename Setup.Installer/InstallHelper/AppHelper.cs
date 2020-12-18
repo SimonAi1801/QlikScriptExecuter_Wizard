@@ -81,7 +81,7 @@ namespace Setup.Installer.InstallHelper
 
             StringBuilder sbConfig = new StringBuilder();
             StringBuilder sbConnection = new StringBuilder();
-            StringBuilder sbApiInfo = new StringBuilder();
+            //StringBuilder sbApiInfo = new StringBuilder();
 
             if (!Directory.Exists(_filePath + _config))
             {
