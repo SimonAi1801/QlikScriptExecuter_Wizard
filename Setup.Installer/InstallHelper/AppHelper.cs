@@ -20,7 +20,8 @@ namespace Setup.Installer.InstallHelper
 
         public static void Save(string serverUrl, string userId, string userDirectory,
                                 string proxyPath, string headName, string qlikConnectorName,
-                                string misc, string dataBaseName,
+                                //string misc, 
+                                string dataBaseName,
                                 string financeDashBoardConnectorPath,
                                 string appDashBoardName,
                                 string appDataLoadName,
@@ -133,8 +134,6 @@ namespace Setup.Installer.InstallHelper
 
             #endregion
         }
-
-
         #region Helpers
 
 

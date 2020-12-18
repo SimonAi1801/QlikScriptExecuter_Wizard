@@ -36,7 +36,7 @@ namespace Setup.Installer.InstallHelper
             string dataBaseName = null;
             string financeDashBoardConnectorPath = null;
             string qlikConnectorName = null;
-            string misc = null;
+            //string misc = null;
             string headName = null;
             string appDataLoadName = null;
             string appDashBoardName = null;
@@ -46,6 +46,7 @@ namespace Setup.Installer.InstallHelper
             //string tmp = null;
             foreach (string keyValue in Context.Parameters.Keys)
             {
+                #region Cases
                 //tmp += $"{keyValue}: " + AdjustString(Context.Parameters[keyValue]) + '\n';
                 switch (keyValue)
                 {
@@ -129,11 +130,11 @@ namespace Setup.Installer.InstallHelper
                             qlikConnectorName = AdjustString(Context.Parameters[keyValue]);
                             break;
                         }
-                    case "qlikconnectionpath":
-                        {
-                            misc = AdjustString(Context.Parameters[keyValue]);
-                            break;
-                        }
+                    //case "qlikconnectionpath":
+                    //    {
+                    //        misc = AdjustString(Context.Parameters[keyValue]);
+                    //        break;
+                    //    }
                     case "appdataload":
                         {
                             appDataLoadName = AdjustString(Context.Parameters[keyValue]);
@@ -162,6 +163,7 @@ namespace Setup.Installer.InstallHelper
                     default:
                         break;
                 }
+                #endregion
             }
 
             //File.WriteAllText(@"C:\Work\ScriptExecuter\test0815.txt", tmp);
@@ -172,7 +174,7 @@ namespace Setup.Installer.InstallHelper
                            proxyPath,
                            headName,
                            qlikConnectorName,
-                           misc,
+                           //misc,
                            dataBaseName,
                            financeDashBoardConnectorPath,
                            appDashBoardName,
